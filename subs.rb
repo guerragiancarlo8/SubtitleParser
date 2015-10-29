@@ -1,10 +1,9 @@
 class Subtitle
-
-	def initialize orderNumber, StartTime, EndTime, Text
-		@orderNumber = orderNumber,
-		@StartTime = StartTime,
-		@EndTime = EndTime
-		@Text = Text
+	def initialize orderNumber, startTime, endTime, text
+		@orderNumber = orderNumber
+		@startTime = startTime
+		@endTime = endTime
+		@text = text
 	end
 end
 
@@ -14,6 +13,14 @@ class FileParser
 		@file = file
 	end
 
+	def readFile
+		text=File.open(@file).read
+		text.each_line do |line|
+			
+			print line
+		
+		end
+	end
 end
 
 class SubtitleParser
@@ -23,3 +30,9 @@ class SubtitleParser
 	end
 
 end
+
+FileParser.new("srt.txt").readFile
+FileParser.new("file.srt").readFile
+
+
+#if line.split('')[0] == "\n"
